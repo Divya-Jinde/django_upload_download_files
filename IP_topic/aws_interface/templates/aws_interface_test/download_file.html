@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    {% block content %}
+    <h2>Documents</h2>
+    <ul>
+        {% for document in documents %}
+        <li>
+            {{ document.description }} -
+            <a href="{% url 'download' document.id %}">Download</a>
+        </li>
+        {% empty %}
+        <li>No documents found.</li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+
+</body>
+
+</html>
